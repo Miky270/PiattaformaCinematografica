@@ -1,5 +1,3 @@
-import catalogo
-
 def totale(catalogo):
     film=0
     serie=0
