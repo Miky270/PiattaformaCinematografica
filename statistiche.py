@@ -1,3 +1,5 @@
+import catalogo
+
 def totale(catalogo):
     film=0
     serie=0
@@ -20,9 +22,37 @@ def genereComune(catalogo):
             else:
                 generi[genere]=1
     
-    for key in dict(sorted(generi.items(), key= lambda item:item[1], reverse=True)):
-        pass
+    ordinati=dict(sorted(generi.items(), key=lambda item:item[1], reverse=True))
+
+    for key,value in ordinati.items():
+        print(key+": "+str(value) )
         
 
-def media():
-    pass
+
+def media(catalogo):
+    durata_tot=0
+    episodi_tot=0
+    film_cont=0
+    serie_cont=0
+
+    for elemento in catalogo:
+        if elemento["tipo"]=="Film":
+            durata_tot+=elemento["durata"]
+            film_cont+=1
+        elif elemento["tipo"]=="Serie":
+            episodi_tot+=elemento["episodi"]
+            serie_cont+=1
+
+            
+    if film_cont>0:
+        durata_media=durata_tot/film_cont
+    else:
+        durata_media=0
+
+    if serie_cont>0:
+        episodi_media=episodi_tot/serie_cont
+    else:
+        episodi_media=0
+
+    print("La durata media dei film è "+durata_media)
+    print("La media del numero di episodi delle serie è "+episodi_media)
