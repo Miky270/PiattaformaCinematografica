@@ -44,6 +44,7 @@ def main():
             print("Media dei dati:")
             media(catalogo)
 
+
         elif scelta == "3":
             print("\n--- Ricerca Contenuti ---")
             criterio = input("Cerca per (titolo/genere/tipo): ").strip().lower()
