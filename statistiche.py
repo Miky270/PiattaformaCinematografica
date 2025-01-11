@@ -52,5 +52,5 @@ def media(catalogo):
     else:
         episodi_media=0
 
-    print("La durata media dei film è "+durata_media)
-    print("La media del numero di episodi delle serie è "+episodi_media)
+    print("La durata media dei film è "+str(durata_media))
+    print("La media del numero di episodi delle serie è "+str(episodi_media))

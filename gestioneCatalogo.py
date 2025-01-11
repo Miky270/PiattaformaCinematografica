@@ -3,10 +3,10 @@ from datetime import datetime
 def inserimento(catalogo):
     titolo = input("Inserisci il titolo: ")
     genere = set(input("Inserisci i generi separati da virgola: ").split(','))
-    tipo = input("Inserisci il tipo (Film o Serie): ")                          #fare controllo
-    durata = int(input("Inserisci la durata in minuti: "))                      #fare controllo
-    episodi = int(input("Inserisci il numero di episodi: "))                    #fare controllo
-    visualizzazioni = int(input("Inserisci il numero di visualizzazioni: "))    #fare controllo
+    tipo = input("Inserisci il tipo (Film o Serie): ")
+    durata = int(input("Inserisci la durata in minuti: "))
+    episodi = int(input("Inserisci il numero di episodi: "))
+    visualizzazioni = int(input("Inserisci il numero di visualizzazioni: "))
 
     nuovo_contenuto = {
         "titolo": titolo,

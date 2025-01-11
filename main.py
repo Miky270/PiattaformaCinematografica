@@ -1,6 +1,7 @@
 from gestioneCatalogo import inserimento, modifica, eliminazione
 from statistiche import totale, genereComune, media
 from raccomandazioni import analizza_generi_preferiti, genera_raccomandazioni
+from catalogo import dataBase
 
 # Catalogo iniziale
 catalogo = []
@@ -22,7 +23,8 @@ def main():
             print("b. Modificare un contenuto esistente")
             print("c. Eliminare un contenuto")
             print("d. Torna al menu principale")
-            sotto_scelta = input("Seleziona un'opzione (a-d): ")
+            print("e. Imposta catalogo standard")
+            sotto_scelta = input("Seleziona un'opzione (a-e): ")
 
             if sotto_scelta == "a":
                 inserimento(catalogo)
@@ -32,6 +34,8 @@ def main():
                 eliminazione(catalogo)
             elif sotto_scelta == "d":
                 continue
+            elif sotto_scelta == "e":
+                dataBase(catalogo)
             else:
                 print("\nOpzione non valida. Riprova.")
 
@@ -44,12 +48,16 @@ def main():
             print("Media dei dati:")
             media(catalogo)
 
-
         elif scelta == "3":
             print("\n--- Ricerca Contenuti ---")
+            criteri_validi = ["titolo", "genere", "tipo"]
             criterio = input("Cerca per (titolo/genere/tipo): ").strip().lower()
-            valore = input("Inserisci il valore da cercare: ").strip().lower()
 
+            while criterio not in criteri_validi:
+                print("Input non valido. Per favore inserisci uno tra 'titolo', 'genere', 'tipo'.")
+                criterio = input("Cerca per (titolo/genere/tipo): ").strip().lower()
+
+            valore = input("Inserisci il valore da cercare: ").strip().lower()
             risultati = []
 
             for elemento in catalogo:
